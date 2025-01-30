@@ -1,8 +1,13 @@
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { FaChevronDown } from "react-icons/fa"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
 
-const FloatingOrb = ({ className }) => (
+// Type for FloatingOrb component props to ensure className is a string
+type FloatingOrbProps = {
+  className?: string;
+};
+
+const FloatingOrb = ({ className }: FloatingOrbProps) => (
   <div className={`absolute w-64 h-64 rounded-full ${className}`} />
 );
 
@@ -112,5 +117,5 @@ export default function Hero() {
         <div className="absolute left-1/3 bottom-1/4 w-2 h-2 bg-indigo-500 rounded-full animate-ping delay-700" />
       </div>
     </section>
-  )
+  );
 }
