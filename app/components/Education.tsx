@@ -21,13 +21,15 @@ export default function Education() {
         >
           <div className="glass-effect p-8 flex flex-col md:flex-row items-start gap-8">
             <div className="flex-shrink-0">
-              <Image
-                src="https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/swiss-german-5beba9eeaeebe136642cd0b8.jpg?raw=true"
-                alt="Swiss German University"
-                width={160}
-                height={120}
-                className="rounded-lg"
-              />
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/swiss-german-5beba9eeaeebe136642cd0b8.jpg?raw=true"
+                  alt="Swiss German University"
+                  width={160}
+                  height={120}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Swiss German University</h3>
@@ -47,4 +49,3 @@ export default function Education() {
     </section>
   )
 }
-

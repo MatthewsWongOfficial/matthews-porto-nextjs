@@ -79,14 +79,16 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-24 h-24 rounded-lg bg-white p-2 flex-shrink-0">
-                  <Image
-                    src={exp.logo || "/placeholder.svg"}
-                    alt={exp.company}
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="w-24 h-24 rounded-2xl bg-white p-2 flex-shrink-0 shadow-lg">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={exp.logo || "/placeholder.svg"}
+                      alt={exp.company}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain rounded-xl transition-transform duration-300 hover:scale-110 drop-shadow-xl"
+                    />
+                  </div>
                 </div>
                 <div className="flex-grow">
                   <h3 className="text-2xl font-bold mb-4">{exp.company}</h3>
