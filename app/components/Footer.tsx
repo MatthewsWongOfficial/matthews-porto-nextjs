@@ -1,7 +1,13 @@
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"
-import { motion } from "framer-motion"
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Footer() {
+  const socialLinks = [
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/matthewswong", label: "LinkedIn" },
+    { icon: FaGithub, href: "https://github.com/MatthewsWongOfficial", label: "GitHub" },
+    { icon: FaEnvelope, href: "mailto:matthewswong2610@gmail.com", label: "Email" },
+  ];
+
   return (
     <footer id="contact" className="py-12">
       <div className="container mx-auto px-6 text-center">
@@ -19,11 +25,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {[
-            { icon: FaLinkedin, href: "https://www.linkedin.com/in/matthewswong", label: "LinkedIn" },
-            { icon: FaGithub, href: "https://github.com/MatthewsWongOfficial", label: "GitHub" },
-            { icon: FaEnvelope, href: "mailto:matthewswong2610@gmail.com", label: "Email" },
-          ].map((social, index) => {
+          {socialLinks.map((social) => {
             const IconComponent = social.icon;
             return (
               <motion.a

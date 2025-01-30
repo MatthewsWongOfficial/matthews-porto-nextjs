@@ -9,15 +9,23 @@ const experiences = [
       {
         title: "DevOps Engineer",
         duration: "Jan 2025 - Present",
-        description: "Ansible, Docker Swarm and +5 skills",
+        description: [
+          "Ensure uptime for German and Indonesian websites with uptime alerts.",
+          "Monitor system performance using Grafana.",
+          "Configure On-Call system with escalation chains.",
+          "Set up alerts to notify developers via phone.",
+          "Work with Ansible, Docker Swarm, and other DevOps tools."
+        ]
       },
       {
         title: "Software Development Engineer in Test",
         duration: "Jul 2024 - Jan 2025",
-        description:
-          "Developed and executed automated UI tests using WebdriverIO, Xpath Selector, and the Mocha framework for front-end validation.",
-      },
-    ],
+        description: [
+          "Developed and executed automated UI tests.",
+          "Used WebdriverIO, Xpath Selector, and Mocha framework for front-end validation."
+        ]
+      }
+    ]
   },
   {
     company: "id/x partners",
@@ -26,9 +34,12 @@ const experiences = [
       {
         title: "Data Scientist",
         duration: "May 2024 - Jun 2024",
-        description: "Mastered data storytelling techniques and conducted thorough exploratory data analysis (EDA).",
-      },
-    ],
+        description: [
+          "Mastered data storytelling techniques.",
+          "Conducted thorough exploratory data analysis (EDA)."
+        ]
+      }
+    ]
   },
   {
     company: "PT Bank Mandiri (Persero) Tbk",
@@ -37,12 +48,14 @@ const experiences = [
       {
         title: "Mobile Apps Developer",
         duration: "Jan 2024 - Feb 2024",
-        description:
-          "Engaged in Android development, utilizing Android Studio, UI/Design Patterns, Security, RecyclerView, and SQLite Database.",
-      },
-    ],
-  },
-]
+        description: [
+          "Engaged in Android development using Android Studio.",
+          "Worked with UI/Design Patterns, Security, RecyclerView, and SQLite Database."
+        ]
+      }
+    ]
+  }
+];
 
 export default function Experience() {
   return (
@@ -82,7 +95,11 @@ export default function Experience() {
                       <h4 className="text-xl font-semibold text-indigo-400 mb-2">{role.title}</h4>
                       <p className="text-slate-300 mb-2">{role.duration}</p>
                       <p className="text-sm text-slate-400 mb-2">Internship</p>
-                      <p className="text-slate-300">{role.description}</p>
+                      <ul className="list-disc list-inside text-slate-300">
+                        {role.description.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>
@@ -92,6 +109,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
