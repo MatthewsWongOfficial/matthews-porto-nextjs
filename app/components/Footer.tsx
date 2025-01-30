@@ -23,24 +23,26 @@ export default function Footer() {
             { icon: FaLinkedin, href: "https://www.linkedin.com/in/matthewswong", label: "LinkedIn" },
             { icon: FaGithub, href: "https://github.com/MatthewsWongOfficial", label: "GitHub" },
             { icon: FaEnvelope, href: "mailto:matthewswong2610@gmail.com", label: "Email" },
-          ].map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-            >
-              <social.icon size={24} />
-              <span className="sr-only">{social.label}</span>
-            </motion.a>
-          ))}
+          ].map((social, index) => {
+            const IconComponent = social.icon;
+            return (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+              >
+                <IconComponent size={24} />
+                <span className="sr-only">{social.label}</span>
+              </motion.a>
+            );
+          })}
         </motion.div>
         <p className="text-sm text-gray-500">© 2025 Matthews Wong. All rights reserved.</p>
       </div>
     </footer>
-  )
+  );
 }
-
