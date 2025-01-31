@@ -27,7 +27,7 @@ export default function Header() {
             className="text-2xl font-bold relative group"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-              MW
+              Matthews Wong
             </span>
             <div className="absolute -inset-2 bg-white/20 rounded-lg blur-lg group-hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100" />
           </Link>
@@ -44,7 +44,7 @@ export default function Header() {
               isOpen ? "block" : "hidden"
             } absolute md:relative top-full left-0 right-0 md:top-auto bg-slate-900/95 md:bg-transparent p-4 md:p-0 rounded-b-lg md:rounded-none backdrop-blur-lg md:backdrop-blur-none`}
           >
-            {["About", "Education", "Experience", "Certifications", "Contact"].map((item) => (
+            {["About", "Education", "Experience", "Certifications", "Hackathon", "Projects", "Contact"].map((item) => (
               <motion.li 
                 key={item} 
                 whileHover={{ y: -2 }} 

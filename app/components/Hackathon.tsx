@@ -5,26 +5,36 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 // Sample hackathon data - replace with your actual data
 const hackathons = [
-    {
-        id: 1,
-        title: "PwC Capture the Flag - Hackaday Event",
-        image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG_0173.jpg?raw=true",
-      },
-      {
-        id: 2,
-        title: "Blockchain Training by Pelita Bangsa Academy",
-        image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/WhatsApp%20Image%202025-01-11%20at%2018.07.47_82743a8b%20(1).jpg?raw=true",
-      },
-      {
-        id: 3,
-        title: "AI Hackathon Held By AI Indonesia Society",
-        image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG-20241022-WA0006.jpg?raw=true",
-      },
-      {
-        id: 4,
-        title: "PwC Capture the Flag - Hackaday Event",
-        image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG_0290.jpg?raw=true",
-      },
+  {
+    id: 1,
+    title: "PwC Capture the Flag - Hackaday Event",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG_0173.jpg?raw=true",
+  },
+  {
+    id: 2,
+    title: "Blockchain Training by Pelita Bangsa Academy",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/WhatsApp%20Image%202025-01-11%20at%2018.07.47_82743a8b%20(1).jpg?raw=true",
+  },
+  {
+    id: 3,
+    title: "AI Hackathon Held By AI Indonesia Society",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG-20241022-WA0006.jpg?raw=true",
+  },
+  {
+    id: 4,
+    title: "PwC Capture the Flag - Hackaday Event",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/IMG_0290.jpg?raw=true",
+  },
+  {
+    id: 5,
+    title: "Software Development Workshop held by commsult",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/WhatsApp%20Image%202025-01-31%20at%2015.19.06.jpeg?raw=true",
+  },
+  {
+    id: 6,
+    title: "Blockchain Workshop and Training by Pelita Bangsa Academy",
+    image: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/WhatsApp%20Image%202025-01-31%20at%2015.19.07.jpeg?raw=true",
+  },
 ]
 
 export default function Hackathon() {
@@ -72,11 +82,11 @@ export default function Hackathon() {
     }, 5000)
 
     return () => clearInterval(timer)
-  }, [handleNext]) // Added handleNext to dependencies
+  }, [handleNext])
 
   return (
-    <section id="hackathon" className="min-h-screen py-20 relative overflow-hidden">
-      {/* Subtle background effects */}
+<section id="hackathon" className="min-h-[80vh] py-10 md:py-20 relative overflow-hidden">
+{/* Subtle background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/0 via-slate-900/80 to-slate-900" />
 
@@ -85,7 +95,7 @@ export default function Hackathon() {
 
       <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
+          className="text-3xl md:text-5xl font-bold text-center mb-6 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -95,7 +105,7 @@ export default function Hackathon() {
           </span>
         </motion.h2>
 
-        <div className="relative w-full max-w-4xl mx-auto aspect-video">
+        <div className="relative w-full max-w-4xl mx-auto aspect-video px-2 md:px-6">
           {/* Subtle slider glow */}
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg blur-lg group-hover:blur-xl transition-all duration-500" />
 
@@ -154,4 +164,3 @@ export default function Hackathon() {
     </section>
   )
 }
-

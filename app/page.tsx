@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -22,90 +21,40 @@ export default function Home() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-slate-900">
-        <motion.div
-          className="text-4xl font-bold gradient-text"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-        >
+        <div className="text-4xl font-bold gradient-text">
           Loading...
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
-    <motion.div 
-      className="min-h-screen bg-slate-900"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <div className="min-h-screen bg-slate-900">
       <Header />
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <div>
         <Hero />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <About />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 0.6 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Education />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 0.8 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Experience />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 1 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Certifications />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 1.2 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Hackathon />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 1.4 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Projects />  {/* Add the Projects component here */}
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 1, delay: 1.6 }}
-        viewport={{ once: true }}
-      >
+      </div>
+      <div>
         <Footer />
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
