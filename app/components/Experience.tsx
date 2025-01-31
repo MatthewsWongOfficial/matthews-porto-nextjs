@@ -1,7 +1,21 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
+import type { FC } from 'react'
 
-const experiences = [
+// Define types for the data structure
+interface Role {
+  title: string;
+  duration: string;
+  description: string[];
+}
+
+interface Experience {
+  company: string;
+  logo: string;
+  roles: Role[];
+}
+
+const experiences: Experience[] = [
   {
     company: "Commsult Indonesia",
     logo: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/commsult-logo.png?raw=true",
@@ -22,7 +36,9 @@ const experiences = [
         duration: "Jul 2024 - Jan 2025",
         description: [
           "Developed and executed automated UI tests.",
-          "Used WebdriverIO, Xpath Selector, and Mocha framework for front-end validation."
+          "Used WebdriverIO, Xpath Selector, and Mocha framework for front-end validation.",
+          "Integrate Allure reporting framework to provide comprehensive and detailed test reports",
+          "Design reusable test scripts to enhance testing efficiency and reduce maintenance efforts"
         ]
       }
     ]
@@ -32,11 +48,12 @@ const experiences = [
     logo: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/RQ8J4BVWEN684XEJ32PPLTHR34CSDCQY2WFWBQ7C-6184f0df.png?raw=true",
     roles: [
       {
-        title: "Data Scientist",
+        title: "Project-Based Virtual Intern : Data Scientist id/x partners x Rakamin Academy",
         duration: "May 2024 - Jun 2024",
         description: [
-          "Mastered data storytelling techniques.",
-          "Conducted thorough exploratory data analysis (EDA)."
+          "Mastered data storytelling techniques to effectively communicate insights derived from data analysis",
+          "Demonstrated proficiency in data visualization, creating compelling and informative visual representations of complex data",
+          "Conducted thorough exploratory data analysis (EDA), uncovering key patterns and trends in datasets to drive informed decision-making."
         ]
       }
     ]
@@ -46,64 +63,93 @@ const experiences = [
     logo: "https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/Bank_Mandiri_logo_2016.svg.png?raw=true",
     roles: [
       {
-        title: "Mobile Apps Developer",
+        title: "Project-Based Virtual Intern : Mobile Apps Developer x Rakamin Academy",
         duration: "Jan 2024 - Feb 2024",
         description: [
-          "Engaged in Android development using Android Studio.",
-          "Worked with UI/Design Patterns, Security, RecyclerView, and SQLite Database."
+          "Engaged in Android development, utilizing Android Studio, UI/Design Patterns, Security, RecyclerView, and SQLite Database",
+          "Demonstrated proficiency in programming languages such as XML, Gradle, and Kotlin, applying OOP concepts effectively"
         ]
       }
     ]
   }
 ];
 
-export default function Experience() {
+const Experience: FC = () => {
   return (
-    <section id="experience" className="content-section">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="min-h-screen py-20 relative overflow-hidden">
+      {/* Subtle background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/0 via-slate-900/80 to-slate-900" />
+      
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#080808_1px,transparent_1px),linear-gradient(to_bottom,#080808_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
+
+      <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="section-title text-center"
+          className="text-4xl md:text-5xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Internship Experience
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+            Experiences
+          </span>
         </motion.h2>
-        <div className="grid gap-8">
+
+        <div className="grid gap-8 relative z-10">
           {experiences.map((exp, index) => (
             <motion.div
-              key={index}
-              className="glass-effect p-6"
+              key={exp.company}
+              className="relative group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-24 h-24 rounded-2xl bg-white p-2 flex-shrink-0 shadow-lg">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={exp.logo || "/placeholder.svg"}
-                      alt={exp.company}
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-contain rounded-xl transition-transform duration-300 hover:scale-110 drop-shadow-xl"
-                    />
+              {/* Subtle card glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg blur-lg group-hover:blur-xl transition-all duration-500" />
+              
+              <div className="glass-effect p-8 rounded-lg backdrop-blur-xl bg-white/5 border border-white/10 relative">
+                <div className="flex flex-col md:flex-row items-start gap-6">
+                  {/* Updated logo container with more opacity */}
+                  <div className="w-24 h-24 rounded-2xl bg-white/60 p-2 flex-shrink-0 shadow-lg backdrop-blur-sm">
+                    <motion.div 
+                      className="relative w-full h-full"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={exp.logo}
+                        alt={exp.company}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-contain rounded-xl"
+                        priority
+                      />
+                    </motion.div>
                   </div>
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-2xl font-bold mb-4">{exp.company}</h3>
-                  {exp.roles.map((role, roleIndex) => (
-                    <div key={roleIndex} className={roleIndex !== 0 ? "mt-6 pt-6 border-t border-white/10" : ""}>
-                      <h4 className="text-xl font-semibold text-indigo-400 mb-2">{role.title}</h4>
-                      <p className="text-slate-300 mb-2">{role.duration}</p>
-                      <p className="text-sm text-slate-400 mb-2">Internship</p>
-                      <ul className="list-disc list-inside text-slate-300">
-                        {role.description.map((point, i) => (
-                          <li key={i}>{point}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  
+                  <div className="flex-grow">
+                    <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                      {exp.company}
+                    </h3>
+                    {exp.roles.map((role, roleIndex) => (
+                      <div 
+                        key={role.title}
+                        className={roleIndex !== 0 ? "mt-6 pt-6 border-t border-white/10" : ""}
+                      >
+                        <h4 className="text-xl font-semibold text-indigo-400 mb-2">{role.title}</h4>
+                        <p className="text-slate-300 mb-2">{role.duration}</p>
+                        <p className="text-sm text-slate-400 mb-4">Internship</p>
+                        <ul className="list-disc list-inside text-slate-300 space-y-2">
+                          {role.description.map((point, i) => (
+                            <li key={i} className="transition-colors duration-300 hover:text-blue-400">
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -111,5 +157,7 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  );
+  )
 }
+
+export default Experience

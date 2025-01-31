@@ -9,6 +9,8 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Certifications from "./components/Certifications";
 import Footer from "./components/Footer";
+import Hackathon from "./components/Hackathon";
+import Projects from "./components/Projects";  // Import Projects component
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -84,6 +86,22 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1, delay: 1.2 }}
+        viewport={{ once: true }}
+      >
+        <Hackathon />
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 1, delay: 1.4 }}
+        viewport={{ once: true }}
+      >
+        <Projects />  {/* Add the Projects component here */}
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 1, delay: 1.6 }}
         viewport={{ once: true }}
       >
         <Footer />
