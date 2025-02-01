@@ -50,12 +50,12 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-b from-white/25 to-transparent rounded-full" />
             
             <Image
-              src="https://github.com/MatthewsWongOfficial/portofolio-images-bucket/blob/main/profile-pic.e32711ca8e7b9d8b99fa.png?raw=true"
-              alt="Matthews Wong"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-full shadow-2xl relative z-10"
-              priority
+            src="/images/profile-pic.png"
+            alt="Matthews Wong"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-full shadow-2xl relative z-10"
+            priority
             />
             
             {/* Enhanced rotating effects */}

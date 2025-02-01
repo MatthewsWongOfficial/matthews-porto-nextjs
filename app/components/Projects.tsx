@@ -75,42 +75,54 @@ export default function Project() {
             transition={{ duration: 0.5 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white text-5xl">
-            Featured Projects
+              Featured Projects
             </span>
-            </motion.h2>
+          </motion.h2>
   
           {/* Featured Projects */}
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="relative w-full md:w-4/5 mx-auto"
+                className="relative w-full md:w-4/5 mx-auto group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="absolute -inset-0.5 bg-white/1 rounded-xl blur-sm"></div>
-                <div className="glass-effect rounded-xl overflow-hidden relative backdrop-blur-sm bg-white/5 border border-white/10">
+                {/* Glow effect */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                
+                {/* Main card container */}
+                <div className="relative rounded-xl overflow-hidden bg-slate-900/40 backdrop-blur-md border border-white/10">
+                  {/* Image container */}
                   <div className="relative pb-[150%]">
                     <Image
                       src={project.image}
                       alt={project.title}
                       layout="fill"
-                      className="transition-transform duration-500 hover:scale-105"
+                      className="transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4 backdrop-blur-sm bg-white/5">
+                  
+                  {/* Content container */}
+                  <div className="p-4 relative bg-gradient-to-b from-slate-900/80 to-slate-900/95 backdrop-blur-sm">
+                    {/* Subtle top border */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    
                     <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
                       {project.title}
                     </h3>
-                    <p className="text-slate-300 mb-4 text-sm">{project.description}</p>
+                    <p className="text-slate-300 mb-4 text-sm leading-relaxed">{project.description}</p>
                     {project.features && (
                       <>
                         <h4 className="text-md font-semibold mb-2 text-indigo-400">Main Features:</h4>
-                        <ul className="list-disc list-inside text-white text-sm space-y-1">
+                        <ul className="list-disc list-inside text-slate-200 text-sm space-y-1">
                           {project.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="hover:text-blue-300 transition-colors duration-300">
-                              {feature}
+                            <li 
+                              key={featureIndex} 
+                              className="hover:text-blue-300 transition-colors duration-300 pl-2"
+                            >
+                              <span className="ml-[-1.5rem]">•</span> {feature}
                             </li>
                           ))}
                         </ul>
@@ -133,28 +145,35 @@ export default function Project() {
               Other Projects
             </span>
           </motion.h3>
+          
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="relative w-full md:w-4/5 mx-auto"
+                className="relative w-full md:w-4/5 mx-auto group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="absolute -inset-0.5 bg-white/10 rounded-xl blur-sm"></div>
-                <div className="relative backdrop-blur-sm bg-white/5 p-4 rounded-xl border border-white/10">
+                {/* Glow effect */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                
+                {/* Card container */}
+                <div className="relative rounded-xl bg-slate-900/40 backdrop-blur-md p-4 border border-white/10">
                   <h3 className="text-lg font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
                     {project.title}
                   </h3>
-                  <p className="text-slate-300 mb-4 text-sm">{project.description}</p>
+                  <p className="text-slate-300 mb-4 text-sm leading-relaxed">{project.description}</p>
                   {project.features && (
                     <>
                       <h4 className="text-md font-semibold mb-2 text-indigo-400">Key Highlights:</h4>
-                      <ul className="list-disc list-inside text-slate-300 text-sm space-y-1">
+                      <ul className="list-disc list-inside text-slate-200 text-sm space-y-1">
                         {project.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="hover:text-blue-300 transition-colors duration-300">
-                            {feature}
+                          <li 
+                            key={featureIndex} 
+                            className="hover:text-blue-300 transition-colors duration-300 pl-2"
+                          >
+                            <span className="ml-[-1.5rem]">•</span> {feature}
                           </li>
                         ))}
                       </ul>
@@ -167,4 +186,4 @@ export default function Project() {
         </div>
       </section>
     );
-  }
+}
